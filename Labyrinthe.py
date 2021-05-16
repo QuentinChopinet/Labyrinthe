@@ -102,7 +102,7 @@ grille[NbLigneGrille-2 + (NbLigneGrille-2)*NbColonneGrille]=6 #Plateforme Fin
 #Variable de TEMPS du Jeu
 tempsPause=0.3 #temps du tic du jeu
 tempsJeu=NbLigneGrille*NbColonneGrille
-print "tempsJeu = ", tempsJeu
+print("tempsJeu = " + str(tempsJeu))
 tempsVictoire=tempsJeu
 compteurTempsJeu=0
 
@@ -152,8 +152,8 @@ while i<nbNeuroneParCouche*nbOutput:
     TabCoucheOut[i]=IA[i+debut]
     i+=1
     
-print "génération : ",generation
-print "   IA : ",IASelect
+print("génération : " + str(generation))
+print("   IA : " + str(IASelect))
 
 #                                       *** FIN Création de l' IA ***
 
@@ -338,19 +338,19 @@ while continuer:
         #*** Déplacement
         if direction==8:
             positionPion[1]-=1
-            print "gauche"
+            print("gauche")
             time.sleep(tempsPause)
         elif direction==2:
             positionPion[1]+=1
-            print "droite"
+            print("droite")
             time.sleep(tempsPause)
         elif direction==4:
             positionPion[0]-=1
-            print "haut"
+            print("haut")
             time.sleep(tempsPause)
         elif direction==6:
             positionPion[0]+=1
-            print "bas"
+            print("bas")
             time.sleep(tempsPause)
         
         # *+* Début Affichage du Pion
@@ -377,19 +377,19 @@ while continuer:
         score=positionPrecedentePion[0]+positionPrecedentePion[1]
         if gameOver==-1:
             score+=(tempsJeu-compteurTempsJeu)
-            print "IA arrivé"
+            print("IA arrivé")
             time.sleep(1)
         elif gameOver==1: #vide
             score-=5
         
-        print "Score",score
+        print("Score " + str(score))
         #Traitement IA
         ScoreIA[IASelect]=score
 
         
         if IASelect==nbIA-1: #si fin du round
             generation+=1
-            print "génération : ",generation
+            print("génération : " + str(generation))
             IASelect=0
             #Recalcule IA
             #copie de la meiller IA
@@ -421,7 +421,7 @@ while continuer:
                 i+=1
         else:
             IASelect+=1   
-        print "   IA : ",IASelect
+        print("   IA : " + str(IASelect))
         #affecte une nouvelle IA au jeu
         debut=IASelect*tailleIA
         i=0
